@@ -1,0 +1,131 @@
+﻿<UserControl x:Class="Tanks.Web.UI.TankBrush"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:local="clr-namespace:Tanks.Web.UI"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="100" Height="50">
+    <UserControl.Resources>
+        <Storyboard x:Name="explode">
+            <DoubleAnimation From="0" To="1" Storyboard.TargetName="explosion" Storyboard.TargetProperty="Opacity" Duration="00:00:00.990"/>
+        </Storyboard>
+        <Storyboard x:Name="doDamage">
+            <DoubleAnimation From="1" To="0" Storyboard.TargetName="damageText" Storyboard.TargetProperty="Opacity" Duration="00:00:01"/>
+            <DoubleAnimation From="0" To="-50" Storyboard.TargetName="damageTranslate" Storyboard.TargetProperty="Y" Duration="00:00:01"/>
+        </Storyboard>
+    </UserControl.Resources>
+    <Canvas 
+        IsHitTestVisible="False" >
+        <Canvas x:Name="vehicleCanvas">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform x:Name="scaleTransform" CenterX="50" CenterY="0" ScaleX="1.2" ScaleY="1.2"/>
+                    <RotateTransform x:Name="rotateTransform" Angle="0"/>
+                    <TranslateTransform x:Name="translateTransform"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Canvas x:Name="shapeCanvas">
+                <Path Stroke="Black" StrokeThickness="1" x:Name="cannon">
+                    <Path.Fill>
+                        <SolidColorBrush x:Name="cannonFill" Color="Brown"/>
+                    </Path.Fill>
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform x:Name="cannonRotation" CenterX="50" CenterY="17" Angle="-45"/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigureCollection>
+                                    <PathFigure StartPoint="50,20">
+                                        <PathFigure.Segments>
+                                            <LineSegment Point="100,20"/>
+                                            <LineSegment Point="100,21"/>
+                                            <LineSegment Point="107,21"/>
+                                            <LineSegment Point="107,9"/>
+                                            <LineSegment Point="100,9"/>
+                                            <LineSegment Point="100,10"/>
+                                            <LineSegment Point="50,10"/>
+                                            <LineSegment Point="50,20"/>
+                                        </PathFigure.Segments>
+                                    </PathFigure>
+                                </PathFigureCollection>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+
+                <Path Stroke="Black" StrokeThickness="1" x:Name="track">
+                    <Path.Fill>
+                        <SolidColorBrush x:Name="trackFill" Color="Brown"/>
+                    </Path.Fill>
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigureCollection>
+                                    <PathFigure StartPoint="7,50">
+                                        <PathFigure.Segments>
+                                            <LineSegment Point="93,50"/>
+                                            <ArcSegment Point="93,35" IsLargeArc="False" Size="7,7" SweepDirection="Counterclockwise"/>
+                                            <LineSegment Point="10,35"/>
+                                            <ArcSegment Point="7,50" IsLargeArc="False" Size="7,7" SweepDirection="Counterclockwise"/>
+                                        </PathFigure.Segments>
+                                    </PathFigure>
+                                </PathFigureCollection>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+
+                <Path Stroke="Black" StrokeThickness="1" x:Name="tankBody">
+                    <Path.Fill>
+                        <SolidColorBrush x:Name="bodyFill" Color="Brown"/>
+                    </Path.Fill>
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigureCollection>
+                                    <PathFigure StartPoint="30,35">
+                                        <PathFigure.Segments>
+                                            <LineSegment Point="70,35"/>
+                                            <ArcSegment Point="80,25" IsLargeArc="False" Size="10,10" SweepDirection="Counterclockwise"/>
+                                            <LineSegment Point="80,10"/>
+                                            <ArcSegment Point="70,0" IsLargeArc="False" Size="10,10" SweepDirection="Counterclockwise"/>
+                                            <LineSegment Point="30,0"/>
+                                            <ArcSegment Point="20,10" IsLargeArc="False" Size="10,10" SweepDirection="Counterclockwise"/>
+                                            <LineSegment Point="20,25"/>
+                                            <ArcSegment Point="30,35" IsLargeArc="False" Size="10,10" SweepDirection="Counterclockwise"/>
+                                        </PathFigure.Segments>
+                                    </PathFigure>
+                                </PathFigureCollection>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <Ellipse Width="13" Height="13" Fill="Black" Canvas.Top="36" Canvas.Left="5"/>
+                <Ellipse Width="13" Height="13" Fill="Black" Canvas.Top="36" Canvas.Left="20"/>
+                <Ellipse Width="13" Height="13" Fill="Black" Canvas.Top="36" Canvas.Left="35"/>
+                <Ellipse Width="13" Height="13" Fill="Black" Canvas.Top="36" Canvas.Left="50"/>
+                <Ellipse Width="13" Height="13" Fill="Black" Canvas.Top="36" Canvas.Left="65"/>
+                <Ellipse Width="13" Height="13" Fill="Black" Canvas.Top="36" Canvas.Left="80"/>
+                <ProgressBar Foreground="Red" Background="White" BorderBrush="Black" x:Name="recharge" 
+                         Canvas.Top="5" Canvas.Left="25" Minimum="0" Maximum="100" Value="50" Width="50" Height="10">
+                </ProgressBar>
+                <ProgressBar Foreground="Green" Background="White" BorderBrush="Black" x:Name="health" 
+                         Canvas.Top="18" Canvas.Left="25" Minimum="0" Maximum="100" Value="50" Width="50" Height="10"/>
+
+                <TextBlock x:Name="hitPointText" Canvas.Left="43" Canvas.Top="17" FontSize="8">100</TextBlock>
+            </Canvas>
+            <local:Explosion x:Name="explosion" Opacity="0" Canvas.Top="-150" Canvas.Left="-25">
+                <local:Explosion.RenderTransform>
+                    <ScaleTransform x:Name="explosionScale" ScaleX="2.5" ScaleY="2.5" />
+                </local:Explosion.RenderTransform>
+            </local:Explosion>
+            <TextBlock x:Name="damageText" Opacity="1" Canvas.Left="20" Foreground="#ff6600" Canvas.Top="-30" FontSize="20" Text="-100">
+                <TextBlock.RenderTransform>
+                    <TranslateTransform x:Name="damageTranslate"/>
+                </TextBlock.RenderTransform>
+
+            </TextBlock>
+
+        </Canvas>
+    </Canvas>
+</UserControl>

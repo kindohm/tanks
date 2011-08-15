@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="Tanks.Web.UI.MaxHealthPowerupContentBrush"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Width="50" Height="50">
+    <Canvas>
+        <Canvas.Background>
+            <SolidColorBrush x:Name="mainColor" Color="Transparent"/>
+        </Canvas.Background>
+        <Path Stroke="Black" StrokeThickness="1">
+            <Path.Fill>
+                <SolidColorBrush Color="DarkRed"/>
+            </Path.Fill>
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="25,10">
+                                <PathFigure.Segments>
+                                    <ArcSegment Point="25,45" IsLargeArc="False" Size="17,10" RotationAngle="-40" SweepDirection="Clockwise"/>
+                                    <ArcSegment Point="25,10" IsLargeArc="False" Size="17,10" RotationAngle="40" SweepDirection="Clockwise"/>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+        <TextBlock FontWeight="Bold" Canvas.Top="15" Canvas.Left="11" Foreground="White">MAX</TextBlock>
+    </Canvas>
+</UserControl>

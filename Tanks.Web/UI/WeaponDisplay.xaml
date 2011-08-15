@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="Tanks.Web.UI.WeaponDisplay"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows">
+    <UserControl.Resources>
+
+        <ControlTemplate x:Key="ctListBoxItem" TargetType="ListBoxItem">
+            <Grid Width="Auto" Height="Auto" Margin="0,2,10,2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="weaponGrid">
+                <Grid.RenderTransform>
+                    <ScaleTransform x:Name="imageScale"/>
+                </Grid.RenderTransform>
+                <vsm:VisualStateManager.VisualStateGroups>
+                    <vsm:VisualStateGroup x:Name="CommonStates">
+                        <vsm:VisualState x:Name="Normal"/>
+                    </vsm:VisualStateGroup>
+                    <vsm:VisualStateGroup x:Name="SelectionStates">
+                        <vsm:VisualState x:Name="Unselected">
+                            <Storyboard>
+                                <ColorAnimation Duration="00:00:00.100" To="Transparent" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"/>
+                                <DoubleAnimation Duration="00:00:00.100" To="1.0" Storyboard.TargetName="imageScale" Storyboard.TargetProperty="ScaleX" />
+                                <DoubleAnimation Duration="00:00:00.100" To="1.0" Storyboard.TargetName="imageScale" Storyboard.TargetProperty="ScaleY" />
+                            </Storyboard>
+                        </vsm:VisualState>
+                        <vsm:VisualState x:Name="Selected">
+                            <Storyboard>
+                                <ColorAnimation Duration="00:00:00.100" To="White" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"/>
+                                <DoubleAnimation Duration="00:00:00.100" To="1.3" Storyboard.TargetName="imageScale" Storyboard.TargetProperty="ScaleX" />
+                                <DoubleAnimation Duration="00:00:00.100" To="1.3" Storyboard.TargetName="imageScale" Storyboard.TargetProperty="ScaleY" />
+                            </Storyboard>
+                        </vsm:VisualState>
+                        <vsm:VisualState x:Name="SelectedUnfocused">
+                            <Storyboard>
+                                <ColorAnimation Duration="00:00:00.100" To="White" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"/>
+                                <DoubleAnimation Duration="00:00:00.100" To="1.3" Storyboard.TargetName="imageScale" Storyboard.TargetProperty="ScaleX" />
+                                <DoubleAnimation Duration="00:00:00.100" To="1.3" Storyboard.TargetName="imageScale" Storyboard.TargetProperty="ScaleY" />
+                            </Storyboard>
+                        </vsm:VisualState>
+                    </vsm:VisualStateGroup>
+                </vsm:VisualStateManager.VisualStateGroups>
+                <Rectangle  HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Fill="#00FF1D2A" Stroke="#FF000000" RadiusY="10" RadiusX="10" x:Name="rectangle" StrokeThickness="0"/>
+                <StackPanel Orientation="Horizontal" Margin="5,5,5,5">
+                    <Image VerticalAlignment="Center" Source="{Binding Path=ImageName}" Width="20" Height="20" x:Name="image"  Margin="0,0,5,0">
+                        
+                    </Image>
+                </StackPanel>
+            </Grid>
+        </ControlTemplate>
+
+        <Style x:Key="styleListBoxItem" TargetType="ListBoxItem">
+            <Setter Property="Template" Value="{StaticResource ctListBoxItem}"/>
+        </Style>
+
+        <Style x:Key="styleListBox" TargetType="ListBox">
+            <Setter Property="ItemContainerStyle" Value="{StaticResource styleListBoxItem}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBox">
+                        <Grid HorizontalAlignment="Stretch">
+                            <Border CornerRadius="10" BorderBrush="Black" BorderThickness="0" Padding="5">
+                                <!--<Border.Background>
+                                    <LinearGradientBrush Opacity=".7">
+                                        <LinearGradientBrush.GradientStops>
+                                            <GradientStop Color="LightGray" Offset="0"/>
+                                            <GradientStop Color="White" Offset="1"/>
+                                        </LinearGradientBrush.GradientStops>
+                                    </LinearGradientBrush>
+                                </Border.Background>-->
+                                <StackPanel>
+                                    <TextBlock FontWeight="Bold" FontSize="12">Weapons (press Space to change)</TextBlock>
+                                    <StackPanel Orientation="Horizontal">
+                                        <ItemsPresenter Margin="0,0,0,0"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </UserControl.Resources>
+    <Canvas>
+        <ListBox Height="80" x:Name="weaponList" Width="350" IsEnabled="False"
+            HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+            BorderThickness="0,1,0,0" Margin="0,0,0,0" 
+            Style="{StaticResource styleListBox}"
+            ItemContainerStyle="{StaticResource styleListBoxItem}">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" Background="Transparent"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+    </Canvas>
+</UserControl>

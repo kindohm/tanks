@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="Tanks.Web.Maps.MapG"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:local="clr-namespace:Tanks.Web.UI"
+    Width="1000" Height="750">
+    <Canvas x:Name="groundCanvas">
+        <Canvas.Background>
+            <LinearGradientBrush>
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Color="#99ccff" Offset="0"/>
+                    <GradientStop Color="#6699cc" Offset="1"/>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </Canvas.Background>
+        <local:Cloud Canvas.Left="720" Canvas.Top="5" />
+        <Path Stroke="Black" StrokeThickness="1" x:Name="groundPath">
+            <Path.Fill>
+                <SolidColorBrush Color="Green"/>
+            </Path.Fill>
+            <Path.Data>
+                <PathGeometry x:Name="terrainGeometry">
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="0,750">
+                                <PathFigure.Segments>
+                                    <LineSegment Point="1000,750"/>
+                                    <LineSegment Point="1000,630"/>
+                                    <LineSegment Point="300,690"/>
+                                    <LineSegment Point="0,700"/>
+                                    <LineSegment Point="0,750"/>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                            
+                            <PathFigure StartPoint="0,200">
+                                <PathFigure.Segments>
+                                    <LineSegment Point="270,205"/>
+                                    <LineSegment Point="260,250"/>
+                                    <LineSegment Point="100,290"/>
+                                    <LineSegment Point="25,450"/>
+                                    <LineSegment Point="10,700"/>
+                                    <LineSegment Point="0,700"/>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+    </Canvas>
+
+</UserControl>

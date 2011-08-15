@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>TANKS - About the game</title>
+    <link rel="Stylesheet" href="styles.css" />
+
+    <script type="text/javascript" src="jquery.js"></script>
+
+    <script type="text/javascript" src="footer.js"></script>
+
+</head>
+<body>
+    <div id="wrapper">
+        <h1>
+            TANKS - About the game
+        </h1>
+        <ul class="nav">
+            <li><a href="default.htm">Home</a></li>
+            <li><a href="tanks.htm" target="_blank">Play the Game</a></li>
+            <li><a href="stats.htm">Top Scores</a></li>
+            <li><a href="about.htm">About the Game</a></li>
+            <li><a href="releases.htm">Releases</a></li>
+        </ul>
+        <h3>
+            Disclaimer</h3>
+        <p>
+            I'm not a game developer, and this game was developed in my own spare time. The
+            purpose of developing this game was to learn more about Silverlight and the Farseer
+            Physics Engine, and not to deliver a killer game to the public.
+        </p>
+        <h3>
+            Game Architecture</h3>
+        <ul>
+            <li>Farseer Physics Engine (<a href="http://www.codeplex.com/farseerphysics">codeplex.com/farseerphysics</a></li>
+            <li>Silverlight C# library that contains the core game logic and user interface</li>
+            <li>ASP.NET service layer for posting/getting high scores</li>
+            <li>HTML pages for content (what you are reading now)</li>
+            <li>JQuery for top score data access (AJAX) and DHTML</li>
+        </ul>
+        <h3>
+            Silverlight Game Design</h3>
+        <p>
+            The relationship between the physics engine and WPF user interface is very similar
+            to the example application found in the Farseer Physics CodePlex source code. For
+            each Body/Geometry in the physics engine, there is a corresponding Silverlight user
+            control that has the same size. On each game "tick", each user control added to
+            the scene has its position and rotation updated to reflect the position and rotation
+            of its corresponding physics object.
+        </p>
+        <p>
+            Game "ticks" are controlled through the use of a WPF Storyboard object. Each time
+            the Storyboard completes, the physics engine is updated for one tick and the Storyboard
+            repeats.
+        </p>
+        <p>
+            Enemy AI is pretty basic. The hard work was finding a quadratic function curve that
+            could match a 45-degree angle shot to the player's tank. The enemy AI pretty much
+            ends there. Some randomness is thrown in so that the enemy tanks don't score a direct
+            hit on each shot, and they are also constrained by rate of fire and damage limits.
+            Enemy rate of fire and damage bonuses increase in the game as you advance.</p>
+        <p>
+            Each round is its own .NET class. There is a core base Round class that defines
+            core round logic, but each round can override things like the number of enemies,
+            tank placement, enemy bonuses, and wind parameters.</p>
+        <p>
+            The maps are just WPF user controls with LineSegments that define the terrain shape.
+            When a map is loaded, the LineSegments are read out of the user control and physics
+            bodies/geometries are created from the LineSegment points.
+        </p>
+        <p>
+            Top scores are submitted using a REST-ful service call to a SQL server database.
+            The top scores web page uses JQuery and an AJAX call to go and get the data.</p>
+        <h3>
+            Performance Testing</h3>
+        <p>
+            No performance benchmarks were defined or used. The game has only been tested on
+            a Pentium Core 2 Duo laptop on Vista x64.
+        </p>
+        <p>&nbsp;</p>
+    </div>
+</body>
+</html>

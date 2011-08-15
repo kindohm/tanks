@@ -1,0 +1,559 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0171CEF1-F9D2-4262-9AA3-993083709288}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tanks.Web</RootNamespace>
+    <AssemblyName>Tanks.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Tanks.Web.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Tanks.Web.App</SilverlightAppEntry>
+    <TestPageFileName>TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>false</ThrowErrorsInValidation>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FarseerPhysics, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameEventArgs.cs" />
+    <Compile Include="GameObjects\AccuracyPowerup.cs" />
+    <Compile Include="GameObjects\BaseGameObject.cs" />
+    <Compile Include="BrushExtender.cs" />
+    <Compile Include="GameObjects\BurstPowerup.cs" />
+    <Compile Include="GameObjects\Cannon.cs" />
+    <Compile Include="GameObjects\Ceiling.cs" />
+    <Compile Include="GameObjects\DamagePowerup.cs" />
+    <Compile Include="GameObjects\EnemyVehicle.cs" />
+    <Compile Include="GameObjects\FiredShotEventArgs.cs" />
+    <Compile Include="GameObjects\HealthPowerup.cs" />
+    <Compile Include="GameObjects\HitPointsChangedEventArgs.cs" />
+    <Compile Include="GameObjects\HitTargetEventArgs.cs" />
+    <Compile Include="GameObjects\LittleBullet.cs" />
+    <Compile Include="GameObjects\LlamaGun.cs" />
+    <Compile Include="GameObjects\LlamaGunPowerup.cs" />
+    <Compile Include="GameObjects\LlamaProjectile.cs" />
+    <Compile Include="GameObjects\MaxHealthPowerup.cs" />
+    <Compile Include="GameObjects\PowerupAcquiredEventArgs.cs" />
+    <Compile Include="GameObjects\PowerupEventArgs.cs" />
+    <Compile Include="GameObjects\ProjectileEventArgs.cs" />
+    <Compile Include="GameObjects\ProjectileExplodedEventArgs.cs" />
+    <Compile Include="GameObjects\Uzi.cs" />
+    <Compile Include="GameObjects\UziPowerup.cs" />
+    <Compile Include="GameObjects\VehicleEventArgs.cs" />
+    <Compile Include="GameObjects\Weapon.cs" />
+    <Compile Include="GameObjects\WindEventArgs.cs" />
+    <Compile Include="Maps\IMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Maps\MapB.xaml.cs">
+      <DependentUpon>MapB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Maps\MapBDefinition.cs" />
+    <Compile Include="Maps\MapC.xaml.cs">
+      <DependentUpon>MapC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Maps\MapCDefinition.cs" />
+    <Compile Include="Maps\MapD.xaml.cs">
+      <DependentUpon>MapD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Maps\MapDDefinition.cs" />
+    <Compile Include="Maps\MapE.xaml.cs">
+      <DependentUpon>MapE.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Maps\MapEDefinition.cs" />
+    <Compile Include="Maps\MapF.xaml.cs">
+      <DependentUpon>MapF.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Maps\MapFDefinition.cs" />
+    <Compile Include="Maps\MapG.xaml.cs">
+      <DependentUpon>MapG.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Maps\MapGDefinition.cs" />
+    <Compile Include="Maps\MapH.xaml.cs">
+      <DependentUpon>MapH.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Maps\MapHDefinition.cs" />
+    <Compile Include="Maps\MapUnit.cs" />
+    <Compile Include="MouseHandler.cs" />
+    <Compile Include="GameObjects\Powerup.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Randomizer.cs" />
+    <Compile Include="GameObjects\RateOfFirePowerup.cs" />
+    <Compile Include="GameObjects\Round.cs" />
+    <Compile Include="GameObjects\RoundEventArgs.cs" />
+    <Compile Include="Rounds\Round1.cs" />
+    <Compile Include="Rounds\Round2.cs" />
+    <Compile Include="Rounds\Round3.cs" />
+    <Compile Include="Rounds\Round4.cs" />
+    <Compile Include="Rounds\Round5.cs" />
+    <Compile Include="Rounds\Round6.cs" />
+    <Compile Include="Rounds\Round7.cs" />
+    <Compile Include="Rounds\Round8.cs" />
+    <Compile Include="Rounds\Round9.cs" />
+    <Compile Include="SceneLoopEventArgs.cs" />
+    <Compile Include="Score.cs" />
+    <Compile Include="Scoring.cs" />
+    <Compile Include="Maps\MapADefinition.cs" />
+    <Compile Include="Maps\MapDefinition.cs" />
+    <Compile Include="Maps\MapA.xaml.cs">
+      <DependentUpon>MapA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccuracyPowerupContentBrush.xaml.cs">
+      <DependentUpon>AccuracyPowerupContentBrush.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Arrow.xaml.cs">
+      <DependentUpon>Arrow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BurstPowerupContentBrush.xaml.cs">
+      <DependentUpon>BurstPowerupContentBrush.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CircleBrush.xaml.cs">
+      <DependentUpon>CircleBrush.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Cloud.xaml.cs">
+      <DependentUpon>Cloud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ControlPanel.xaml.cs">
+      <DependentUpon>ControlPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DamagePowerupContentBrush.xaml.cs">
+      <DependentUpon>DamagePowerupContentBrush.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Explosion.xaml.cs">
+      <DependentUpon>Explosion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FixedLinearSpringBrush.xaml.cs">
+      <DependentUpon>FixedLinearSpringBrush.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Game.cs" />
+    <Compile Include="IDrawingBrush.cs" />
+    <Compile Include="GameObjects\IGameObject.cs" />
+    <Compile Include="KeyHandler.cs" />
+    <Compile Include="UI\GameOver.xaml.cs">
+      <DependentUpon>GameOver.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HealthPowerupContentBrush.xaml.cs">
+      <DependentUpon>HealthPowerupContentBrush.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\InfoPanel.xaml.cs">
+      <DependentUpon>InfoPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\IPowerupBrush.cs" />
+    <Compile Include="UI\LinearSpringBrush.xaml.cs">
+      <DependentUpon>LinearSpringBrush.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page.xaml.cs">
+      <DependentUpon>Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameObjects\Projectile.cs" />
+    <Compile Include="UI\LlamaGunPowerupContentBrush.xaml.cs">
+      <DependentUpon>LlamaGunPowerupContentBrush.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MaxHealthPowerupContentBrush.xaml.cs">
+      <DependentUpon>MaxHealthPowerupContentBrush.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PowerupBrush.xaml.cs">
+      <DependentUpon>PowerupBrush.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PowerupHelp.xaml.cs">
+      <DependentUpon>PowerupHelp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectileBrush.xaml.cs">
+      <DependentUpon>ProjectileBrush.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\RateOfFirePowerupContentBrush.xaml.cs">
+      <DependentUpon>RateOfFirePowerupContentBrush.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RectangleBrush.xaml.cs">
+      <DependentUpon>RectangleBrush.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SceneLoop.cs" />
+    <Compile Include="Screen.cs" />
+    <Compile Include="TankView.cs" />
+    <Compile Include="UI\RoundTitle.xaml.cs">
+      <DependentUpon>RoundTitle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ScoringSummary.xaml.cs">
+      <DependentUpon>ScoringSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Splash.xaml.cs">
+      <DependentUpon>Splash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Star.xaml.cs">
+      <DependentUpon>Star.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TankBrush.xaml.cs">
+      <DependentUpon>TankBrush.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UziPowerupContentBrush.xaml.cs">
+      <DependentUpon>UziPowerupContentBrush.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameObjects\Vehicle.cs" />
+    <Compile Include="GameObjects\Wall.cs" />
+    <Compile Include="GameObjects\Wind.cs" />
+    <Compile Include="UI\WeaponDisplay.xaml.cs">
+      <DependentUpon>WeaponDisplay.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Maps\MapB.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Maps\MapC.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Maps\MapD.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Maps\MapE.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Maps\MapF.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Maps\MapA.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Maps\MapG.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Maps\MapH.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccuracyPowerupContentBrush.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Arrow.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\BurstPowerupContentBrush.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CircleBrush.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Cloud.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ControlPanel.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DamagePowerupContentBrush.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Explosion.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\FixedLinearSpringBrush.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\GameOver.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\HealthPowerupContentBrush.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\InfoPanel.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\LinearSpringBrush.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\LlamaGunPowerupContentBrush.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\MaxHealthPowerupContentBrush.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\PowerupBrush.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\PowerupHelp.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProjectileBrush.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\RateOfFirePowerupContentBrush.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\RectangleBrush.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\RoundTitle.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ScoringSummary.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Splash.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Star.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\TankBrush.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UziPowerupContentBrush.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\WeaponDisplay.xaml">
+      <SubType>Page</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="default.htm" />
+    <None Include="screen1.png" />
+    <None Include="screen2.png" />
+    <Resource Include="Maps\lolcat.png" />
+    <None Include="scripts\LocalDeploy.ps1" />
+    <None Include="styles.css" />
+    <None Include="Tanks.htm" />
+    <Resource Include="UI\uzi.png" />
+    <Resource Include="UI\cannon.png" />
+    <Resource Include="UI\llama.png" />
+    <Resource Include="Rounds\lolcat.png" />
+    <Resource Include="UI\explosion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assemblies\FarseerPhysics.dll" />
+    <Content Include="assemblies\FarseerPhysics.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bin\Debug\" />
+    <Folder Include="Bin\Release\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

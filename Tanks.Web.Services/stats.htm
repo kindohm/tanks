@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>TANKS - Top Scores</title>
+    <link rel="Stylesheet" href="styles.css" />
+
+    <script type="text/javascript" src="jquery.js"></script>
+
+    <script type="text/javascript" src="footer.js"></script>
+    <script type="text/javascript" src="topScores.js"></script>
+
+<script type="text/javascript">
+
+    loadStats();
+
+</script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>
+            TANKS - Top Scores
+        </h1>
+        <ul class="nav">
+            <li><a href="default.htm">Home</a></li>
+            <li><a href="tanks.htm" target="_blank">Play the Game</a></li>
+            <li><a href="stats.htm">Top Scores</a></li>
+            <li><a href="about.htm">About the Game</a></li>
+            <li><a href="releases.htm">Releases</a></li>
+        </ul>
+        <p>These are the top 25 scores submitted in the TANKS game.  All data is live.</p>
+        <div id="loading">
+            <p>
+                Loading...</p>
+        </div>
+        <div id="sortDisplay"></div>
+        <div id="scores">
+        </div>
+    </div>
+</body>
+</html>

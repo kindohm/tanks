@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>TANKS - a Silverlight game by Mike Hodnick</title>
+    <link rel="Stylesheet" href="styles.css" />
+
+    <script type="text/javascript" src="jquery.js"></script>
+
+    <script type="text/javascript" src="topScores.js"></script>
+
+    <script type="text/javascript" src="footer.js"></script>
+
+<script type="text/javascript">
+    loadTopScore();
+</script>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>
+            TANKS
+        </h1>
+        <ul class="nav">
+            <li><a href="default.htm">Home</a></li>
+            <li><a href="tanks.htm" target="_blank">Play the Game</a></li>
+            <li><a href="stats.htm">Top Scores</a></li>
+            <li><a href="about.htm">About the Game</a></li>
+            <li><a href="releases.htm">Releases</a></li>
+        </ul>
+        <p>
+            TANKS is a Silverlight game by <a href="http://www.kindohm.com">Mike Hodnick</a>
+            using Silverlight, C#, and the <a href="http://www.codeplex.com/farseerphysics" target="_blank">
+                Farseer Physics engine</a>.</p>
+        <table>
+            <tr>
+                <td valign="top">
+                    <img src="screen1.png" alt="screen1" />
+                </td>
+                <td valign="top">
+                    <img src="screen2.png" alt="screen2" />
+                </td>
+            </tr>
+        </table>
+        <h2>
+            Description</h2>
+        <p>
+            The game is a single-person game in which the object is to get as high of a score
+            as possible. The player accumulates points by destroying enemy tanks, shooting efficiently,
+            and minimizing hits taken from enemy tanks. The player can gain powerups to increase
+            their rate of fire, hit points (health), or weapon types.</p>
+        <h2>
+            Top Scores</h2>
+        <p>
+            The current top score was made by <span id="topScore">[loading...]</span>.</p>
+    </div>
+</body>
+</html>

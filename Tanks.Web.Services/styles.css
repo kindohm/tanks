@@ -1,0 +1,105 @@
+﻿body
+{
+	font-family: Consolas, Courier New, Monospace;
+	text-align: center;
+	background-color: #666666;
+	margin: 0px;
+	font-size: 14px;
+}
+
+#wrapper
+{
+	width: 700px;
+	margin: auto;
+	text-align: left;
+	border: solid 2px #333333;
+	margin-top: 30px;
+	padding: 20px;
+	background-color: #ffffff;
+}
+
+ul.nav
+{
+	margin: 0px;
+	margin-bottom: 10px;
+	background-color: #cccccc;
+	padding: 10px;
+	display: block;
+	height: 20px;
+}
+
+ul.nav li
+{
+	margin: 0px;
+	margin-right: 17px;
+	padding: 0px;
+	float: left;
+	list-style-type: none;
+}
+
+h1
+{
+	text-transform: uppercase;
+	font-size: 220%;
+}
+
+h2
+{
+	font-size: 180%;
+}
+
+table.scoreTable
+{
+	width: 100%;
+}
+
+table.scoreTable th
+{
+	background-color: #cccccc;
+	padding: 5px;
+}
+
+tr.scoreRow
+{
+}
+
+tr.scoreRowAlt
+{
+	background-color: #eeeeee;
+}
+
+tr.scoreRow td
+{
+}
+
+tr.scoreRowAlt td
+{
+	background-color: #eeeeee;
+}
+
+tr.scoreRow td, tr.scoreRowAlt td
+{
+	padding: 5px;
+	
+}
+
+td.right
+{
+}
+
+div.footer
+{
+	font-size: 8pt;
+	color: #aaaaaa;
+	padding-bottom: 50px;
+}
+
+a:link, a:visited
+{
+	color: #006699;
+}
+
+a:hover
+{
+	text-decoration: none;
+}

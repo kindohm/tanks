@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="Tanks.Web.UI.PowerupBrush"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="50" Height="50">
+    <UserControl.Resources>
+        <Storyboard x:Name="expire">
+            <DoubleAnimation From="1" To="0" Storyboard.TargetName="powerupCanvas" Storyboard.TargetProperty="Opacity" Duration="00:00:1.5"/>
+        </Storyboard>
+        <Storyboard x:Name="glow">
+            <ColorAnimation x:Name="mainColorAnimation" To="#eeeeee" AutoReverse="True" 
+                            RepeatBehavior="Forever" Storyboard.TargetName="mainColor" 
+                            Storyboard.TargetProperty="Color" Duration="00:00:0.200"/>
+        </Storyboard>
+    </UserControl.Resources>
+    <Canvas 
+        IsHitTestVisible="False">
+        <Canvas x:Name="powerupCanvas" Opacity="1">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform x:Name="rotateTransform" Angle="0"/>
+                    <TranslateTransform x:Name="translateTransform" X="0" Y="0"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Rectangle x:Name="rectangle" Opacity="1" Width="50" Height="50" Stroke="Black" StrokeThickness="2" Canvas.Left="0" Canvas.Top="0">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="Yellow" x:Name="mainColor"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            
+            
+        </Canvas>
+    </Canvas>
+</UserControl>

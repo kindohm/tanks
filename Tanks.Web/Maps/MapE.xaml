@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="Tanks.Web.Maps.MapE"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+     xmlns:local="clr-namespace:Tanks.Web.UI"
+    Width="1000" Height="750">
+    <UserControl.Resources>
+        <Storyboard x:Name="wait" Duration="00:00:5.00"/>
+        <Storyboard x:Name="showCat">
+            <DoubleAnimation From="0" To="-75" Duration="00:00:2.00" Storyboard.TargetName="catTranslation" Storyboard.TargetProperty="Y"/>
+        </Storyboard>
+        <Storyboard x:Name="hideCat">
+            <DoubleAnimation From="-75" To="0" Duration="00:00:2.00" Storyboard.TargetName="catTranslation" Storyboard.TargetProperty="Y"/>
+        </Storyboard>
+    </UserControl.Resources>
+    <Canvas x:Name="groundCanvas">
+        <Canvas.Background>
+            <LinearGradientBrush>
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Color="#440033" Offset="0"/>
+                    <GradientStop Color="#000066" Offset="1"/>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </Canvas.Background>
+        <Image Source="lolcat.png" Canvas.Top="620" Canvas.Left="830" Width="150" x:Name="cat">
+            <Image.RenderTransform>
+                <TranslateTransform x:Name="catTranslation" />
+            </Image.RenderTransform>
+        </Image>
+        <local:Star Canvas.Left="520" Canvas.Top="221" />
+        <local:Star Canvas.Left="120" Canvas.Top="131" />
+        <local:Star Canvas.Left="620" Canvas.Top="121" />
+        <Path Stroke="Black" StrokeThickness="1" x:Name="groundPath">
+            <Path.Fill>
+                <SolidColorBrush Color="DarkOliveGreen"/>
+            </Path.Fill>
+            <Path.Data>
+                <PathGeometry x:Name="terrainGeometry">
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="0,750">
+                                <PathFigure.Segments>
+                                    <LineSegment Point="1000,750"/>
+                                    <LineSegment Point="1000,600"/>
+                                    <LineSegment Point="800,640"/>
+                                    <LineSegment Point="620,650"/>
+                                    <LineSegment Point="500,650"/>
+                                    <LineSegment Point="470,650"/>
+                                    <LineSegment Point="440,540"/>
+                                    <LineSegment Point="300,550"/>
+                                    <LineSegment Point="0,510"/>
+                                    <LineSegment Point="0,750"/>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+    </Canvas>
+
+</UserControl>

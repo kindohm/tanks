@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="Tanks.Web.Maps.MapF"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:local="clr-namespace:Tanks.Web.UI"
+    Width="1000" Height="750">
+    <Canvas x:Name="groundCanvas">
+        <Canvas.Background>
+            <LinearGradientBrush>
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Color="#6699cc" Offset="0"/>
+                    <GradientStop Color="#440033" Offset="1"/>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </Canvas.Background>
+        <local:Star Canvas.Left="520" Canvas.Top="321" />
+        <local:Cloud Canvas.Left="120" Canvas.Top="5" />
+        <local:Star Canvas.Left="620" Canvas.Top="221" />
+        <Path Stroke="Black" StrokeThickness="1" x:Name="groundPath">
+            <Path.Fill>
+                <SolidColorBrush Color="Green"/>
+            </Path.Fill>
+            <Path.Data>
+                <PathGeometry x:Name="terrainGeometry">
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="0,750">
+                                <PathFigure.Segments>
+                                    <LineSegment Point="1000,750"/>
+                                    <LineSegment Point="1000,310"/>
+                                    <LineSegment Point="770,300"/>
+                                    <LineSegment Point="700,650"/>
+                                    <LineSegment Point="300,650"/>
+                                    <LineSegment Point="0,660"/>
+                                    <LineSegment Point="0,750"/>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+    </Canvas>
+
+</UserControl>

@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="Tanks.Web.Maps.MapA"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:local="clr-namespace:Tanks.Web.UI"
+    Width="1000" Height="750">
+
+    <Canvas x:Name="groundCanvas">
+        <Canvas.Background>
+            <LinearGradientBrush>
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Color="#ccccff" Offset="0"/>
+                    <GradientStop Color="#0099cc" Offset="1"/>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </Canvas.Background>
+        <local:Cloud Canvas.Left="600" Canvas.Top="100" />
+        <Path Stroke="Black" StrokeThickness="1" x:Name="groundPath">
+            <Path.Fill>
+                <SolidColorBrush Color="Green"/>
+            </Path.Fill>
+            <Path.Data>
+                <PathGeometry x:Name="terrainGeometry">
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="0,750">
+                                <PathFigure.Segments>
+                                    <LineSegment Point="1000,750"/>
+                                    <LineSegment Point="1000,730"/>
+                                    <LineSegment Point="700,730"/>
+                                    <LineSegment Point="300,730"/>
+                                    <LineSegment Point="0,730"/>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+    </Canvas>
+
+</UserControl>

@@ -1,0 +1,22 @@
+<UserControl x:Class="Tanks.Web.UI.CircleBrush" xmlns="http://schemas.microsoft.com/client/2007" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Canvas IsHitTestVisible="True">
+        <Canvas  x:Name="circleCanvas">
+            <Ellipse x:Name="ellipse" Stroke="Transparent" StrokeThickness="2" Width="100" Height="100">
+                <Ellipse.Fill>
+                    <RadialGradientBrush Center=".7,.7" GradientOrigin=".7,.7" RadiusX=".6" RadiusY=".7">
+                        <GradientStop Offset="0" Color="White"/>
+                        <GradientStop Offset="1" Color="Orange" x:Name="mainColor"/>
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform x:Name="rotateTransform" Angle="0" CenterX="0" CenterY="0"/>
+                        <TranslateTransform x:Name="translateTransform" X="0" Y="0"/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+
+            </Ellipse>
+        </Canvas>
+    </Canvas>
+</UserControl>

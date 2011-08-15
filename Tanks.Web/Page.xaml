@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Tanks.Web.Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <UserControl.Background>
+        <SolidColorBrush Color="Red"/>
+    </UserControl.Background>
+    <Canvas x:Name="mainCanvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Canvas.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform x:Name="scale" ScaleX="1" ScaleY="1"></ScaleTransform>
+                <TranslateTransform x:Name="translate" X="0" Y="0"/>
+
+            </TransformGroup>
+        </Canvas.RenderTransform>
+    </Canvas>
+</UserControl>

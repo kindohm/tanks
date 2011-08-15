@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="Tanks.Web.UI.GameOver"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Width="600">
+    <UserControl.RenderTransform>
+        <TranslateTransform X="-300" Y="-200"/>
+    </UserControl.RenderTransform>
+    <UserControl.Resources>
+
+        <Storyboard x:Name="delay" Duration="00:00:1.5"/>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot">
+        <Border CornerRadius="50" Background="Gray" Opacity="1" BorderBrush="Black" BorderThickness="3">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock FontSize="50" HorizontalAlignment="Center">Game Over</TextBlock>
+                <Button Margin="25" FontSize="15" x:Name="newGameButton" Click="newGame_Click" HorizontalAlignment="Center" Width="200" Content="Play Another Game"></Button>
+                <Button x:Name="submitScore" Click="submitScore_Click" Content="Submit Score" Margin="25" FontSize="15" Width="200"></Button>
+
+                <StackPanel x:Name="scoreForm" Visibility="Collapsed" Margin="0, 25,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>* Name:</TextBlock>
+                        <TextBlock x:Name="noNameTextBlock" Foreground="Yellow" Visibility="Collapsed">Name is required!</TextBlock>
+                    </StackPanel>
+                    <TextBox x:Name="nameTextBox" Margin="0 0 0 10"/>
+                    <TextBlock>Url:</TextBlock>
+                    <TextBox x:Name="urlTextBox" Margin="0 0 0 10"/>
+                    <TextBlock>Location:</TextBlock>
+                    <TextBox x:Name="locationTextBox" Margin="0 0 0 10"/>
+                    <Button x:Name="submitButton" Click="submitButton_Click" Content="Submit" Margin="25" FontSize="15" Width="200"/>
+                    <ProgressBar x:Name="scoreProgress" Margin="25" Height="20" Minimum="0" Maximum="100" Visibility="Collapsed"/>
+                </StackPanel>
+                
+                <TextBlock x:Name="submittedBlock" Visibility="Collapsed" FontSize="25" Margin="25">Score submitted!  Thanks!</TextBlock>
+
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
